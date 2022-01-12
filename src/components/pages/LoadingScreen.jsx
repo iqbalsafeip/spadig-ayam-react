@@ -16,7 +16,7 @@ const LoadingScreen = () => {
 					style={{
 						height: '100vh',
 						width: '100%',
-						backgroundColor: '#68C93E',
+						backgroundColor: '#582245',
 						display: 'flex',
 						flexDirection: 'column',
 						justifyContent: 'center',
@@ -37,8 +37,8 @@ const LoadingScreen = () => {
 					>
 						<img src={require('../../assets/img/logo.png')} height="200" width="200" />
 					</div>
-					<span style={{ fontSize: 30, fontWeight: 'bold', color: 'white' }}>Anda Bingung ?</span>
-					<span style={{ fontSize: 36, fontWeight: 'bold', color: 'white' }}>Just Vote It</span>
+					<span style={{ fontSize: 26, fontWeight: 'bold', color: 'white' }}>SPADIG-Ayam</span>
+					<span style={{ fontSize: 12, fontWeight: 'bold', color: 'white' }}>(Sistem Pakar Diagnosa Penyakit Ayam)</span>
 				</div>
 			</Fade>
 		</React.Fragment>

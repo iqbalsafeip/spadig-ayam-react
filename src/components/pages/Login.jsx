@@ -15,18 +15,19 @@ const Login = () => {
 				<Header />
 			</Fade>
 			<Fade>
+				<div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}} >
 				<img
-					src={require('../../assets/img/login.png')}
+					src={require('../../assets/img/login.svg')}
 					alt="login img"
-					width="100%"
-					style={{ marginTop: 30 }}
+					style={{  width: '80%', margin: '100px auto' }}
 				/>
+				</div>
 			</Fade>
 			<Fade>
 				<div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-					<hr width="30%" style={{ borderWidth: 1, borderStyle: 'solid', height: 0, color: '#68C93E' }} />
-					<h4 style={{ color: '#68C93E' }}>Masuk Dengan</h4>
-					<hr width="30%" style={{ borderWidth: 1, borderStyle: 'solid', height: 0, color: '#68C93E' }} />
+					<hr width="30%" style={{ borderWidth: 1, borderStyle: 'solid', height: 0, color: '#582245' }} />
+					<h4 style={{ color: '#582245' }}>Masuk Dengan</h4>
+					<hr width="30%" style={{ borderWidth: 1, borderStyle: 'solid', height: 0, color: '#582245' }} />
 				</div>
 			</Fade>
 			<Fade>

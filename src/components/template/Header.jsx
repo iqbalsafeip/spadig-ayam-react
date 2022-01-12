@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import User from '../../utils/redux/user_actions';
 import { useSelector, useDispatch } from 'react-redux';
 import swal from 'sweetalert';
+import { Fade } from 'react-reveal';
 
 const Header = () => {
 	const data = useSelector((state) => state);
@@ -22,40 +23,41 @@ const Header = () => {
 	};
 
 	return (
-		<div
-			style={{ width: '100%', height: 60, backgroundColor: '#68C93E', boxShadow: '0 -2px 10px 0 rgba(0,0,0,.1)' }}
-		>
+		<Fade>
 			<div
-				className="container"
-				style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}
+				style={{ width: '100%', height: 60, backgroundColor: '#582245', boxShadow: '0 -2px 10px 0 rgba(0,0,0,.1)' }}
 			>
-				<Link to="/">
-					<div
-						style={{
-							width: 40,
-							height: 40,
-							backgroundColor: 'white',
-							borderRadius: '50%',
-							display: 'flex',
-							justifyContent: 'center',
-							alignItems: 'center',
-							marginBottom: 10
-						}}
-					>
-						<img src={require('../../assets/img/logo.png')} height="36" />
-					</div>
-				</Link>
-				{data.isAuth ? (
-					<Link onClick={() => logout()} style={{ textDecoration: 'none', color: '#fff' }}>
-						<h5 style={{ fontSize: 16, fontWeight: 'bold' }}>Logout</h5>
+				<div
+					className="container"
+					style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}
+				>
+					<Link to="/">
+						<div
+							style={{
+								width: 40,
+								height: 40,
+								borderRadius: '50%',
+								display: 'flex',
+								justifyContent: 'center',
+								alignItems: 'center',
+								marginBottom: 10
+							}}
+						>
+							<img src={require('../../assets/img/logo.png')} height="36" />
+						</div>
 					</Link>
-				) : (
-					<Link to="/login" style={{ textDecoration: 'none', color: '#fff' }}>
-						<h5 style={{ fontSize: 16, fontWeight: 'bold' }}>Masuk</h5>
-					</Link>
-				)}
+					{data.isAuth ? (
+						<Link onClick={() => logout()} style={{ textDecoration: 'none', color: '#fff' }}>
+							<h5 style={{ fontSize: 16, fontWeight: 'bold' }}>Logout</h5>
+						</Link>
+					) : (
+						<Link to="/login" style={{ textDecoration: 'none', color: '#fff' }}>
+							<h5 style={{ fontSize: 16, fontWeight: 'bold' }}>Masuk</h5>
+						</Link>
+					)}
+				</div>
 			</div>
-		</div>
+		</Fade>
 	);
 };
 

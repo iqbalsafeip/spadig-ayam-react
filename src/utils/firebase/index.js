@@ -3,14 +3,15 @@ import App from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 
+console.log(process.env.REACT_APP_API_KEY);
 // firebase config
 const firebaseConfig = {
-	apiKey: 'AIzaSyCP8rq9a_-H_liLw8TETbgeFuHBebkKVjM',
-	authDomain: 'just-vote-it-v2.firebaseapp.com',
-	projectId: 'just-vote-it-v2',
-	storageBucket: 'just-vote-it-v2.appspot.com',
-	messagingSenderId: '982167150909',
-	appId: '1:982167150909:web:6057842cc56f064b0b6554'
+	apiKey: process.env.REACT_APP_API_KEY,
+	authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+	projectId: process.env.REACT_APP_PROJECT_ID,
+	storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+	messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER,
+	appId: process.env.REACT_APP_APP_ID
 };
 
 // initializing the firebase

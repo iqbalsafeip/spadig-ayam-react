@@ -19,7 +19,7 @@ const UnAuthScreen = () => {
 					style={{
 						height: '100vh',
 						width: '100%',
-						backgroundColor: '#68C93E',
+						backgroundColor: '#582245',
 						display: 'flex',
 						flexDirection: 'column',
 						justifyContent: 'center',
@@ -30,7 +30,6 @@ const UnAuthScreen = () => {
 						style={{
 							width: 250,
 							height: 250,
-							backgroundColor: 'white',
 							borderRadius: '50%',
 							display: 'flex',
 							justifyContent: 'center',
@@ -38,10 +37,11 @@ const UnAuthScreen = () => {
 							marginBottom: 30
 						}}
 					>
-						<img src={require('../../assets/img/logo.png')} height="200" width="200" />
+						<img src={require('../../assets/img/logo.png')} height="300" width="300" />
 					</div>
-					<span style={{ fontSize: 30, fontWeight: 'bold', color: 'white' }}>Anda Bingung ?</span>
-					<span style={{ fontSize: 36, fontWeight: 'bold', color: 'white' }}>Just Vote It</span>
+					<span style={{ fontSize: 28, fontWeight: 'bold', color: 'white', textAlign: 'center' }}>Memiliki Keluhan Pada Ayam ?</span>
+					<span style={{ fontSize: 30, fontWeight: 'bold', color: 'white', textAlign: 'center' }}>SPADIG-Ayam Solusinya!</span>
+					<span style={{ fontSize: 12, fontWeight: 'bold', color: 'white', textAlign: 'center' }}>(Sistem Pakar Diagnosa Penyakit Ayam)</span>
 
 					<Link
 						style={{
@@ -52,7 +52,8 @@ const UnAuthScreen = () => {
 							textDecoration: 'none',
 							fontWeight: 'bold',
 							textAlign: 'center',
-							marginTop: 30
+							marginTop: 30,
+							color: '#582245'
 						}}
 						to="/login"
 					>

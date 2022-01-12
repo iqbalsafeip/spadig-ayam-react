@@ -7,6 +7,7 @@ import UnAuthScreen from '../pages/UnAuthScreen';
 import Footer from '../template/Footer';
 
 import Vote from '../../utils/redux/vote_actions';
+import Header from '../template/Header';
 const HomeLayout = ({ component: Component, ...props }) => {
 	const data = useSelector((state) => state);
 	const [ isNotFound, setNotFound ] = useState(true);
@@ -27,9 +28,9 @@ const HomeLayout = ({ component: Component, ...props }) => {
 					render={(props) => (
 						<React.Fragment>
 							<React.Fragment>
+								<Header />
 								<Component />
 								<Footer />
-								<Navigation />
 							</React.Fragment>
 						</React.Fragment>
 					)}

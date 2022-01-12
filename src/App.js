@@ -11,6 +11,7 @@ import User from './utils/redux/user_actions';
 import VotingRoom from './components/pages/VotingRoom';
 import NotFound from './components/pages/NotFound';
 import CreatePage from './components/pages/CreatePage';
+import Diagnosa from './components/pages/Diagnosa';
 
 store.dispatch(User.isLogin());
 
@@ -22,10 +23,8 @@ function App() {
 					<Switch>
 						<AuthLayout path="/login" exact component={Login} />
 						<HomeLayout path="/" exact component={Home} />
-						<HomeLayout path="/voting" exact component={VotingList} />
-						<HomeLayout path="/voting/create" exact component={CreatePage} />
+						<HomeLayout path="/diagnosa" exact component={Diagnosa} />
 						<Route path="/notfound" exact component={NotFound} />
-						<HomeLayout path="/voting/:id" isRoom={true} exact component={VotingRoom} />
 					</Switch>
 				</BrowserRouter>
 			</Provider>
