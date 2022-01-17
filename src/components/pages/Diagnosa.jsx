@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import Slider from "react-slick";
 import swal from 'sweetalert';
 
+
 import _gejala from '../../data/gejala';
 import diagnosa from '../../data/diagnosa';
+import YoutubeEmbed from '../widgets/YoutubeEmbed';
 
 const attention = [
     'Anda akan disajikan 43 pilihan terkait gejala yang mungkin terdapat pada Ayam Anda, klik ceklis pada box jika benar.',
@@ -93,7 +95,7 @@ const Diagnosa = (props) => {
             icon: 'warning',
             buttons: true,
             dangerMode: true,
-            
+
         }).then((agree) => {
             if (agree) {
                 let selected = selectedGejala.map(e => e.kode);
@@ -103,14 +105,14 @@ const Diagnosa = (props) => {
                     let count = 0;
                     let index = 0;
                     selected.map(a => {
-                        for(let i = 0; i < e.rule.length; i++){
-                            if(e.rule[i] === a){
+                        for (let i = 0; i < e.rule.length; i++) {
+                            if (e.rule[i] === a) {
                                 count++;
                             }
                         }
                     })
-                    let minCount = Math.round((70/ 100) * e.rule.length)
-                    if(count >= minCount){
+                    let minCount = Math.round((70 / 100) * e.rule.length)
+                    if (count >= minCount) {
                         return true
                     } else {
                         return false
@@ -118,8 +120,9 @@ const Diagnosa = (props) => {
                     // JSON.stringify(e.rule).includes(JSON.stringify(selected))
                 })
                 console.log('penyakit dengan gejala yang sesuai', temp);
-                console.log('penyakit dengan gejala yang hampir sama',approachTemp);
+                console.log('penyakit dengan gejala yang hampir sama', approachTemp);
                 setResult(temp)
+                setPage(3)
             }
         });
 
@@ -190,12 +193,12 @@ const Diagnosa = (props) => {
                             {
                                 gejala.length > 0 ? gejala.map((e, i) => (
                                     e.isShown && <Fade key={i}>
-                                            <input id={e.kode} type='checkbox' value={e.kode} onChange={e => _select(e.target.value)} checked={e.isChecked} />
-                                            <label htmlFor={e.kode}>
-                                                <span></span>
-                                                {e.keterangan}
-                                                <ins><i>{e.keterangan}</i></ins>
-                                            </label>
+                                        <input id={e.kode} type='checkbox' value={e.kode} onChange={e => _select(e.target.value)} checked={e.isChecked} />
+                                        <label htmlFor={e.kode}>
+                                            <span></span>
+                                            {e.keterangan}
+                                            <ins><i>{e.keterangan}</i></ins>
+                                        </label>
                                     </Fade>
                                 )) : <div>Data tidak ditemukan</div>
                             }
@@ -205,6 +208,36 @@ const Diagnosa = (props) => {
                             </button>
                         </div>
 
+                    </div>
+                )
+            }
+            {
+                page === 3 && (
+                    <div style={{ width: '90%', margin: 'auto', paddingTop: 10, color: 'white' }} >
+                        <Fade>
+                            <h1>Hasil Diagnosa</h1>
+                            <div style={{ width: '100%', minHeight: 400, position: 'relative', backgroundColor: 'white', borderRadius: 20, display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center' }} >
+                                <div style={{ zIndex: 3, color: 'black', padding: 20 }} >
+                                    <p>Hasil diagnosa yang anda lakukan sebelumnya {diagnosa[0].penyakit}</p>
+                                    <p>{diagnosa[0].deskripsi}</p>
+                                </div>
+                                <img src={require('../../assets/img/ayam.png')} alt="" style={{
+                                    width: 150,
+                                    right: 0,
+                                    bottom: 0,
+                                    position: 'absolute',
+                                    zIndex: 1
+                                }} />
+                            </div>
+                        </Fade>
+                        <Fade>
+                            <h1 style={{marginTop: 40}}>Video Terkait Diagnosa</h1>
+                            {
+                                diagnosa[0].videos.map((e)=> (
+                                    <YoutubeEmbed embedId={e} />
+                                ))
+                            }
+                        </Fade>
                     </div>
                 )
             }
